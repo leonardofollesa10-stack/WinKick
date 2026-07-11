@@ -33,6 +33,27 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+let saldo = localStorage.getItem("saldo");
 
+if (saldo === null) {
+    saldo = 1000;
+}
+
+saldo = Number(saldo);
+
+document.getElementById("saldo").innerHTML = saldo + " 🪙";
+
+function punta(importo) {
+    if (saldo >= importo) {
+        saldo -= importo;
+        localStorage.setItem("saldo", saldo);
+        document.getElementById("saldo").innerHTML = saldo + " 🪙";
+        alert("Hai puntato " + importo + " KickCoin!");
+    } else {
+        alert("Non hai abbastanza KickCoin!");
+    }
+}
+</script>
 </body>
 </html>
