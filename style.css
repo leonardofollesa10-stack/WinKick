@@ -65,3 +65,13 @@ nav a {
     background:#00c853;
     transform:translateY(-5px);
 }
+.card {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+}
