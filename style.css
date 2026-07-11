@@ -43,3 +43,25 @@ nav a {
     display: inline-block;
     margin-top: 20px;
 }
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    padding:25px;
+}
+
+.card{
+    background:#16263b;
+    padding:25px;
+    border-radius:20px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.card:hover{
+    background:#00c853;
+    transform:translateY(-5px);
+}
