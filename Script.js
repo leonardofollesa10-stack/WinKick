@@ -13,3 +13,8 @@ function punta(importo){
 
     alert("✅ Hai puntato " + importo + " KickCoin!");
 }
+function confermaSchedina() {
+    alert("✅ Schedina confermata!");
+
+    window.location.href = "kickcoin.html";
+}
