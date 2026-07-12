@@ -20,11 +20,27 @@
 <div class="card">
 <h3>🇮🇹 Juventus 🆚 Milan</h3>
 
-<button>1</button>
-<button>X</button>
-<button>2</button>
+<p>Quote:</p>
+
+<button onclick="scegli('Juventus',2.10)">1 (2.10)</button>
+
+<button onclick="scegli('Pareggio',3.30)">X (3.30)</button>
+
+<button onclick="scegli('Milan',3.40)">2 (3.40)</button>
 
 </div>
+
+<br>
+
+<p>Pronostico scelto: <span id="scelta">Nessuno</span></p>
+
+<p>Quota: <span id="quota">0</span></p>
+
+<p>Puntata: <input id="puntata" type="number" value="100"></p>
+
+<button class="btn" onclick="calcola()">💰 Calcola vincita</button>
+
+<p id="vincita"></p>
 
 <br>
 
