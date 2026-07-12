@@ -79,6 +79,21 @@ function confermaSchedina() {
     alert("🎉 Schedina giocata con successo!");
     window.location.href = "kickcoin.html";
 }
+    let quota = 0;
+
+function scegli(esito, q){
+    quota = q;
+    document.getElementById("scelta").innerHTML = esito;
+    document.getElementById("quota").innerHTML = q;
+}
+
+function calcola(){
+    let puntata = Number(document.getElementById("puntata").value);
+    let vincita = puntata * quota;
+
+    document.getElementById("vincita").innerHTML =
+    "💰 Vincita possibile: " + vincita.toFixed(2) + " KickCoin";
+}
 </script>
 </body>
 </html>
