@@ -18,3 +18,19 @@ function confermaSchedina() {
 
     window.location.href = "kickcoin.html";
 }
+let quota = 0;
+
+function scegli(esito, q) {
+    document.getElementById("scelta").innerHTML = esito;
+    document.getElementById("quota").innerHTML = q;
+    quota = q;
+}
+
+function calcola() {
+    let puntata = Number(document.getElementById("puntata").value);
+
+    let vincita = puntata * quota;
+
+    document.getElementById("vincita").innerHTML =
+        "Possibile vincita: " + vincita.toFixed(2) + " KickCoin 🪙";
+}
