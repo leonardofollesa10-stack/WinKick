@@ -1066,4 +1066,68 @@ footer p {
     }
 
 }
+   /* ================================
+   FIX GRAFICO SCHEDINA
+================================ */
+
+.section > h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.bet-slip {
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+.bet-slip-header {
+    width: 100%;
+}
+
+#selezioni {
+    width: 100%;
+}
+
+.empty-slip {
+    width: 100%;
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: #0d1d16;
+}
+
+.empty-slip .hero-button {
+    margin-top: 20px;
+}
+
+.bet-summary {
+    width: 100%;
+}
+
+.confirm-button {
+    display: block;
+}
+
+@media (max-width: 750px) {
+
+    .section > h1 {
+        font-size: 30px;
+    }
+
+    .bet-slip {
+        width: 100%;
+    }
+
+    .summary-row {
+        flex-wrap: wrap;
+    }
+
+}
 }
