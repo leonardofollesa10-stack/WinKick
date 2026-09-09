@@ -1,99 +1,382 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crea Schedina - WinKick</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crea Schedina | WinKick</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<h1>🎟️ Crea la tua schedina</h1>
+<header class="topbar">
+
+    <div class="logo">
+        ⚽ <span>WinKick</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="calcio.html">Calcio</a>
+        <a href="torneo.html">Torneo</a>
+        <a href="mondiale.html">Mondiale</a>
+    </nav>
+
+    <div class="account">
+        <a href="login.html">👤 Accedi</a>
+    </div>
+
 </header>
 
-<div class="hero">
 
-<h2>Seleziona il pronostico</h2>
+<section class="section">
 
-<div class="card">
-<h3>🇮🇹 Juventus 🆚 Milan</h3>
+    <div class="section-title">
+        <h1>🎟️ Crea la tua schedina</h1>
+    </div>
 
-<p>Quote:</p>
+    <p style="color:#9aa9a2;">
+        Seleziona le quote che vuoi aggiungere alla tua schedina.
+    </p>
 
-<button onclick="scegli('Juventus',2.10)">1 (2.10)</button>
 
-<button onclick="scegli('Pareggio',3.30)">X (3.30)</button>
+    <!-- SCHEDINA -->
 
-<button onclick="scegli('Milan',3.40)">2 (3.40)</button>
+    <div class="bet-slip">
 
-</div>
+        <div class="bet-slip-header">
 
-<br>
+            <div>
+                <h2>🎟️ La mia schedina</h2>
+                <span id="numeroSelezioni">
+                    0 selezioni
+                </span>
+            </div>
 
-<p>Pronostico scelto: <span id="scelta">Nessuno</span></p>
+            <button onclick="svuotaSchedina()" class="clear-button">
+                🗑️ Svuota
+            </button>
 
-<p>Quota: <span id="quota">0</span></p>
+        </div>
 
-<p>Puntata: <input id="puntata" type="number" value="100"></p>
 
-<button class="btn" onclick="calcola()">💰 Calcola vincita</button>
+        <div id="selezioni">
 
-<p id="vincita"></p>
+            <div class="empty-slip">
 
-<br>
+                <div>🎟️</div>
 
-<div class="card">
-<h3>🇪🇸 Barcellona 🆚 Real Madrid</h3>
+                <h3>La schedina è vuota</h3>
 
-<button>1</button>
-<button>X</button>
-<button>2</button>
+                <p>
+                    Vai nella sezione Calcio e seleziona
+                    una quota per iniziare.
+                </p>
 
-</div>
+                <a href="calcio.html" class="hero-button">
+                    ⚽ Vai al Calcio
+                </a>
 
-<br>
+            </div>
 
-<div class="card">
-<h3>🇩🇪 Bayern 🆚 Dortmund</h3>
+        </div>
 
-<button>1</button>
-<button>X</button>
-<button>2</button>
 
-</div>
+        <!-- PUNTATA -->
 
-<br>
+        <div class="bet-summary">
 
-<a class="btn" href="index.html">⬅ Torna alla Home</a>
-<br><br>
-<button onclick="confermaSchedina()" class="btn">
-✅ Conferma Schedina
-</button>
-</div>
+            <div class="summary-row">
+                <span>Quota totale</span>
+                <strong id="quotaTotale">0.00</strong>
+            </div>
 
-<script src="script.js"></script>
+            <div class="summary-row">
+
+                <span>Puntata</span>
+
+                <div class="stake-box">
+
+                    <input
+                        id="puntata"
+                        type="number"
+                        min="1"
+                        value="10"
+                        oninput="calcolaVincita()"
+                    >
+
+                    <span>🪙</span>
+
+                </div>
+
+            </div>
+
+            <div class="summary-row possible-win">
+
+                <span>Vincita potenziale</span>
+
+                <strong id="vincita">
+                    0 🪙
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="confirm-button"
+            onclick="confermaSchedina()"
+        >
+            ✅ Conferma schedina
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h2>⚽ WinKick</h2>
+
+    <p>
+        Piattaforma di pronostici sportivi con KickCoin virtuali.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+        <a href="calcio.html">Calcio</a>
+        <a href="login.html">Accedi</a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 WinKick
+    </p>
+
+</footer>
+
+
 <script>
+
+let selezioni = [];
+
+
+/* AGGIUNGI UNA QUOTA */
+
+function aggiungiSelezione(partita, esito, quota) {
+
+    selezioni.push({
+        partita: partita,
+        esito: esito,
+        quota: quota
+    });
+
+    aggiornaSchedina();
+}
+
+
+/* AGGIORNA SCHEDINA */
+
+function aggiornaSchedina() {
+
+    const contenitore =
+        document.getElementById("selezioni");
+
+    const numero =
+        document.getElementById("numeroSelezioni");
+
+    const quotaTotale =
+        document.getElementById("quotaTotale");
+
+
+    numero.innerText =
+        selezioni.length + " selezioni";
+
+
+    if (selezioni.length === 0) {
+
+        contenitore.innerHTML = `
+            <div class="empty-slip">
+
+                <div>🎟️</div>
+
+                <h3>La schedina è vuota</h3>
+
+                <p>
+                    Vai nella sezione Calcio e seleziona
+                    una quota per iniziare.
+                </p>
+
+                <a href="calcio.html" class="hero-button">
+                    ⚽ Vai al Calcio
+                </a>
+
+            </div>
+        `;
+
+        quotaTotale.innerText = "0.00";
+
+        calcolaVincita();
+
+        return;
+    }
+
+
+    contenitore.innerHTML = "";
+
+
+    let totale = 1;
+
+
+    selezioni.forEach((selezione, indice) => {
+
+        totale *= selezione.quota;
+
+
+        const elemento =
+            document.createElement("div");
+
+        elemento.className = "selection";
+
+
+        elemento.innerHTML = `
+
+            <div>
+
+                <strong>
+                    ${selezione.partita}
+                </strong>
+
+                <p>
+                    ${selezione.esito}
+                    <span>@ ${selezione.quota}</span>
+                </p>
+
+            </div>
+
+            <button
+                onclick="rimuoviSelezione(${indice})"
+            >
+                ✕
+            </button>
+
+        `;
+
+
+        contenitore.appendChild(elemento);
+
+    });
+
+
+    quotaTotale.innerText =
+        totale.toFixed(2);
+
+
+    calcolaVincita();
+
+}
+
+
+/* RIMUOVI */
+
+function rimuoviSelezione(indice) {
+
+    selezioni.splice(indice, 1);
+
+    aggiornaSchedina();
+
+}
+
+
+/* SVUOTA */
+
+function svuotaSchedina() {
+
+    selezioni = [];
+
+    aggiornaSchedina();
+
+}
+
+
+/* CALCOLA VINCITA */
+
+function calcolaVincita() {
+
+    const puntata =
+        Number(document.getElementById("puntata").value);
+
+
+    if (selezioni.length === 0) {
+
+        document.getElementById("vincita").innerText =
+            "0 🪙";
+
+        return;
+
+    }
+
+
+    let quotaTotale = 1;
+
+
+    selezioni.forEach(selezione => {
+
+        quotaTotale *= selezione.quota;
+
+    });
+
+
+    const vincita =
+        puntata * quotaTotale;
+
+
+    document.getElementById("vincita").innerText =
+        vincita.toFixed(2) + " 🪙";
+
+}
+
+
+/* CONFERMA */
+
 function confermaSchedina() {
-    alert("🎉 Schedina giocata con successo!");
-    window.location.href = "kickcoin.html";
-}
-    let quota = 0;
 
-function scegli(esito, q){
-    quota = q;
-    document.getElementById("scelta").innerHTML = esito;
-    document.getElementById("quota").innerHTML = q;
+    if (selezioni.length === 0) {
+
+        alert("⚠️ La schedina è vuota.");
+
+        return;
+    }
+
+
+    const puntata =
+        Number(document.getElementById("puntata").value);
+
+
+    if (puntata <= 0) {
+
+        alert("⚠️ Inserisci una puntata valida.");
+
+        return;
+    }
+
+
+    alert(
+        "🟡 Schedina creata!\n\n" +
+        "La schedina rimarrà IN ATTESA " +
+        "fino alla conclusione delle partite."
+    );
+
 }
 
-function calcola(){
-    let puntata = Number(document.getElementById("puntata").value);
-    let vincita = puntata * quota;
-
-    document.getElementById("vincita").innerHTML =
-    "💰 Vincita possibile: " + vincita.toFixed(2) + " KickCoin";
-}
 </script>
+
 </body>
+
 </html>
