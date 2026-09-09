@@ -1,39 +1,183 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Registrazione - WinKick</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-<header>
-    <h1>⚽ WinKick</h1>
+<header class="topbar">
+    <div class="logo">⚽ WinKick</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="calcio.html">Calcio</a>
+        <a href="torneo.html">Torneo dei Cugini</a>
+        <a href="mondiale.html">Mondiale</a>
+    </nav>
+
+    <div class="account">
+        <a href="login.html">Accedi</a>
+    </div>
 </header>
 
-<div class="hero">
+<main class="section">
 
-<h2>Crea un account</h2>
+    <div class="bet-slip">
 
-<input type="text" placeholder="Nome utente"><br><br>
+        <div class="bet-slip-header">
+            <h1>👤 Crea il tuo account</h1>
+            <p>Registrati gratuitamente su WinKick</p>
+        </div>
 
-<input type="email" placeholder="Email"><br><br>
+        <div style="padding: 30px;">
 
-<input type="password" placeholder="Password"><br><br>
+            <label>Nome utente</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Es. Leonardo"
+                required
+                style="width:100%; padding:14px; margin:8px 0 20px;"
+            >
 
-<input type="password" placeholder="Conferma password"><br><br>
+            <label>Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="La tua email"
+                required
+                style="width:100%; padding:14px; margin:8px 0 20px;"
+            >
 
-<button>Registrati</button>
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Minimo 6 caratteri"
+                required
+                style="width:100%; padding:14px; margin:8px 0 20px;"
+            >
 
-<br><br>
+            <label>Conferma password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Ripeti la password"
+                required
+                style="width:100%; padding:14px; margin:8px 0 20px;"
+            >
 
-<a href="login.html">Hai già un account? Accedi</a>
+            <button
+                class="confirm-button"
+                onclick="registrati()"
+                style="width:100%;"
+            >
+                REGISTRATI
+            </button>
 
-</div>
+            <p id="messaggio" style="text-align:center; margin-top:20px;"></p>
 
-<script src="script.js"></script>
+            <p style="text-align:center; margin-top:25px;">
+                Hai già un account?
+                <a href="login.html">Accedi</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>⚽ WinKick — Solo KickCoin virtuali</p>
+</footer>
+
+
+<script>
+
+const SUPABASE_URL = sb_publishable_asRaUtHrlvHLrjFlCKiWUg_NbsYfiIn;
+const SUPABASE_KEY = sb_publishable_asRaUtHrlvHLrjFlCKiWUg_NbsYfiIn;
+
+const { createClient } = supabase;
+
+const db = createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+async function registrati() {
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const messaggio = document.getElementById("messaggio");
+
+    messaggio.textContent = "";
+    messaggio.style.color = "";
+
+    if (!username || !email || !password || !confirmPassword) {
+        messaggio.textContent = "⚠️ Compila tutti i campi.";
+        return;
+    }
+
+    if (password.length < 6) {
+        messaggio.textContent = "⚠️ La password deve avere almeno 6 caratteri.";
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        messaggio.textContent = "⚠️ Le password non coincidono.";
+        return;
+    }
+
+    messaggio.textContent = "⏳ Registrazione in corso...";
+
+    const { data, error } = await db.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: {
+                username: username
+            }
+        }
+    });
+
+    if (error) {
+        messaggio.textContent = "❌ " + error.message;
+        return;
+    }
+
+    messaggio.style.color = "#00ff88";
+
+    if (data.session) {
+
+        messaggio.textContent =
+            "✅ Account creato! Hai ricevuto 1000 KickCoin.";
+
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 2000);
+
+    } else {
+
+        messaggio.textContent =
+            "✅ Account creato! Controlla la tua email per confermare l'account.";
+
+    }
+}
+
+</script>
 
 </body>
 </html>
