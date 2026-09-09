@@ -1,77 +1,575 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0d1b2a;
-    color: white;
-}
+/* ================================
+   WIN KICK 2.0
+   Stile sportsbook
+================================ */
 
-header {
-    background: #00c853;
-    padding: 20px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    background: #08131f;
-    padding: 15px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    background: #00c853;
-    padding: 10px 20px;
-    border-radius: 10px;
-}
-
-.hero {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.btn {
-    background: #00c853;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
-    padding:25px;
-}
-
-.card{
-    background:#16263b;
-    padding:25px;
-    border-radius:20px;
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.card:hover{
-    background:#00c853;
-    transform:translateY(-5px);
-}
-.card {
-    display: block;
-    width: 100%;
+* {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07110d;
+    color: #ffffff;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.topbar {
+    min-height: 70px;
+    background: #0b1712;
+    border-bottom: 1px solid #1d3328;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #00e676;
+}
+
+.topbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    background: transparent;
+    padding: 0;
+}
+
+.topbar nav a {
+    color: #d9e5df;
+    background: transparent;
+    padding: 10px 0;
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.topbar nav a:hover {
+    color: #00e676;
+}
+
+.account a {
+    color: #ffffff;
+    background: #00c853;
+    padding: 11px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.account a:hover {
+    background: #00e676;
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(0, 230, 118, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #0b1d14 0%,
+            #07110d 60%,
+            #050a08 100%
+        );
+
+    border-bottom: 1px solid #1d3328;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    background: rgba(0, 230, 118, 0.12);
+    color: #00e676;
+
+    border: 1px solid rgba(0, 230, 118, 0.35);
+
+    padding: 8px 13px;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    margin: 0 0 18px;
+
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.hero p {
+    color: #aabbb2;
+    font-size: 18px;
+    line-height: 1.6;
+
+    max-width: 560px;
+}
+
+.hero-button {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 15px 24px;
+
+    background: #00c853;
+    color: white;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.hero-button:hover {
+    background: #00e676;
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   SEZIONI
+================================ */
+
+.section {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 45px 25px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.section-title a {
+    color: #00e676;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ================================
+   SPORT
+================================ */
+
+.sports-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 18px;
+}
+
+.sport-card {
+    display: block;
+
+    padding: 25px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+    border-radius: 13px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.sport-card:hover {
+    border-color: #00c853;
+    transform: translateY(-4px);
+    background: #10261b;
+}
+
+.sport-card span {
+    font-size: 35px;
+}
+
+.sport-card h3 {
+    margin: 15px 0 7px;
+    font-size: 20px;
+}
+
+.sport-card p {
+    margin: 0;
+    color: #8fa198;
+    font-size: 14px;
+}
+
+
+/* ================================
+   ACCESSO RAPIDO
+================================ */
+
+.quick-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 15px;
+}
+
+.quick-card {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+    border-radius: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.quick-card:hover {
+    border-color: #00c853;
+    background: #10261b;
+    transform: translateY(-3px);
+}
+
+.quick-card > span {
+    font-size: 30px;
+}
+
+.quick-card h3 {
+    margin: 0 0 6px;
+}
+
+.quick-card p {
+    margin: 0;
+
+    color: #8fa198;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* ================================
+   PARTITE IN EVIDENZA
+================================ */
+
+.match-preview {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+    border-radius: 12px;
+}
+
+.match-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.match-info strong {
+    font-size: 13px;
+    color: #00e676;
+}
+
+.match-info p {
+    margin: 5px 0 0;
+    color: #aabbb2;
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+
+    background: #00e676;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.8);
+}
+
+.match-button {
+    background: #00c853;
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.match-button:hover {
+    background: #00e676;
+}
+
+
+/* ================================
+   VECCHI CARD
+   Manteniamo compatibilità
+   con le altre pagine
+================================ */
+
 .cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 20px;
+
+    padding: 25px;
+
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.card {
+    display: block;
+
+    width: 100%;
+
+    padding: 25px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+    border-radius: 15px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.card:hover {
+    background: #10261b;
+
+    border-color: #00c853;
+
+    transform: translateY(-5px);
+}
+
+
+/* ================================
+   VECCHI BOTTONI
+================================ */
+
+.btn {
+    display: inline-block;
+
+    background: #00c853;
+
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    margin-top: 20px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #00e676;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    margin-top: 40px;
+
+    padding: 45px 25px;
+
+    background: #050b08;
+
+    border-top: 1px solid #1c3328;
+
+    text-align: center;
+}
+
+footer h2 {
+    margin: 0 0 10px;
+}
+
+footer p {
+    color: #7f9188;
+}
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #00e676;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.copyright {
+    font-size: 12px;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 750px) {
+
+    .topbar {
+        flex-direction: column;
+
+        padding: 18px;
+
+        gap: 15px;
+    }
+
+    .topbar nav {
+        width: 100%;
+
+        gap: 15px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .topbar nav a {
+        white-space: nowrap;
+    }
+
+    .account {
+        width: 100%;
+    }
+
+    .account a {
+        display: block;
+
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 390px;
+
+        padding: 55px 25px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 35px 18px;
+    }
+
+    .section-title h2 {
+        font-size: 21px;
+    }
+
+    .match-preview {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .match-button {
+        text-align: center;
+    }
+
 }
