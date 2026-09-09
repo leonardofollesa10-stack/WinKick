@@ -571,5 +571,499 @@ footer p {
     .match-button {
         text-align: center;
     }
+/* ================================
+   SCHEDINA WIN KICK
+================================ */
 
+.bet-slip {
+    max-width: 850px;
+    margin: 30px auto 0;
+
+    background: #0b1712;
+
+    border: 1px solid #1c3328;
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* HEADER SCHEDINA */
+
+.bet-slip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 25px;
+
+    background: #10261b;
+
+    border-bottom: 1px solid #1c3328;
+}
+
+.bet-slip-header h2 {
+    margin: 0 0 5px;
+}
+
+.bet-slip-header span {
+    color: #84978e;
+    font-size: 13px;
+}
+
+.clear-button {
+    border: 1px solid #3a4d43;
+
+    background: transparent;
+
+    color: #cbd6d1;
+
+    padding: 9px 13px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    background: #18271f;
+}
+
+
+/* SCHEDINA VUOTA */
+
+.empty-slip {
+    text-align: center;
+
+    padding: 55px 25px;
+
+    color: #84978e;
+}
+
+.empty-slip > div {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.empty-slip h3 {
+    color: white;
+    margin: 0 0 10px;
+}
+
+.empty-slip p {
+    max-width: 450px;
+    margin: 0 auto 20px;
+
+    line-height: 1.5;
+}
+
+
+/* SELEZIONI */
+
+.selection {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 22px;
+
+    border-bottom: 1px solid #1c3328;
+}
+
+.selection strong {
+    font-size: 15px;
+}
+
+.selection p {
+    margin: 7px 0 0;
+
+    color: #9aaaA2;
+
+    font-size: 13px;
+}
+
+.selection p span {
+    color: #00e676;
+
+    font-weight: bold;
+
+    margin-left: 5px;
+}
+
+.selection button {
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #18271f;
+
+    color: #9aaaa2;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.selection button:hover {
+    background: #332020;
+    color: #ff5252;
+}
+
+
+/* RIEPILOGO */
+
+.bet-summary {
+    padding: 22px 25px;
+
+    background: #09130e;
+
+    border-top: 1px solid #1c3328;
+}
+
+.summary-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 10px 0;
+
+    color: #a9b8b1;
+}
+
+.summary-row strong {
+    color: white;
+}
+
+.stake-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.stake-box input {
+    width: 110px;
+
+    padding: 10px;
+
+    border: 1px solid #30483b;
+
+    border-radius: 7px;
+
+    background: #0d1d16;
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.stake-box input:focus {
+    border-color: #00c853;
+}
+
+.possible-win {
+    margin-top: 8px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid #1c3328;
+}
+
+.possible-win strong {
+    color: #00e676;
+
+    font-size: 20px;
+}
+
+
+/* CONFERMA */
+
+.confirm-button {
+    width: calc(100% - 50px);
+
+    margin: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #00c853;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.confirm-button:hover {
+    background: #00e676;
+
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   PAGINA CALCIO
+================================ */
+
+.football-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 55px 7%;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(0, 230, 118, 0.12),
+            transparent 35%
+        ),
+        #07110d;
+
+    border-bottom: 1px solid #1c3328;
+}
+
+.football-header h1 {
+    margin: 15px 0 10px;
+
+    font-size: 42px;
+}
+
+.football-header p {
+    margin: 0;
+
+    color: #9aaaa2;
+}
+
+
+/* COMPETIZIONI */
+
+.competition-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 15px;
+}
+
+.competition-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 20px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.competition-card:hover,
+.competition-card.active {
+    border-color: #00c853;
+
+    background: #10261b;
+}
+
+.competition-card strong {
+    font-size: 16px;
+}
+
+.competition-card span {
+    color: #7f9188;
+
+    font-size: 12px;
+}
+
+
+/* PARTITE */
+
+.matches-container {
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.empty-matches {
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+.empty-icon {
+    font-size: 45px;
+}
+
+.empty-matches h3 {
+    margin-bottom: 8px;
+}
+
+.empty-matches p {
+    color: #87978f;
+}
+
+.pending-label {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 193, 7, 0.1);
+
+    color: #ffc107;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* MERCATI */
+
+.markets-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 15px;
+}
+
+.market-card {
+    padding: 20px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+
+    border-radius: 12px;
+}
+
+.market-card span {
+    color: #00e676;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.market-card strong {
+    display: block;
+
+    margin: 8px 0;
+}
+
+.market-card p {
+    margin: 0;
+
+    color: #7f9188;
+
+    font-size: 13px;
+}
+
+
+/* INFO */
+
+.info-box {
+    padding: 25px;
+
+    background: #0d1d16;
+
+    border: 1px solid #1c3328;
+
+    border-radius: 12px;
+}
+
+.info-box h3 {
+    margin-top: 0;
+}
+
+.info-box p {
+    color: #9aaaa2;
+
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .football-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 40px 20px;
+    }
+
+    .football-header h1 {
+        font-size: 34px;
+    }
+
+    .bet-slip {
+        margin-top: 20px;
+    }
+
+    .bet-slip-header {
+        padding: 18px;
+    }
+
+    .selection {
+        padding: 16px;
+    }
+
+    .bet-summary {
+        padding: 18px;
+    }
+
+    .confirm-button {
+        width: calc(100% - 36px);
+        margin: 18px;
+    }
+
+}
 }
