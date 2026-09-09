@@ -1,36 +1,230 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcio - WinKick</title>
+
+    <title>Calcio | WinKick</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>⚽ Calcio</h1>
-</header>
+    <!-- HEADER -->
+    <header class="topbar">
 
-<nav>
-    <a href="index.html">🏠 Home</a>
-    <a href="torneo.html">🏆 Torneo dei Cugini</a>
-    <a href="mondiale.html">🌍 Mondiale</a>
-</nav>
+        <div class="logo">
+            ⚽ <span>WinKick</span>
+        </div>
 
-<div class="hero">
-    <h2>Competizioni</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calcio.html">Calcio</a>
+            <a href="torneo.html">Torneo</a>
+            <a href="mondiale.html">Mondiale</a>
+        </nav>
 
-    <p>🇮🇹 Serie A</p>
-    <p>🏆 Champions League</p>
-    <p>🌍 Mondiale</p>
-    <p>🇪🇺 Europei</p>
+        <div class="account">
+            <a href="login.html">👤 Accedi</a>
+        </div>
 
-    <a class="btn" href="index.html">⬅ Torna alla Home</a>
-</div>
+    </header>
 
-<script src="script.js"></script>
+
+    <!-- TITOLO -->
+    <section class="football-header">
+
+        <div>
+            <span class="hero-badge">⚽ CALCIO</span>
+
+            <h1>Pronostici Calcio</h1>
+
+            <p>
+                Scegli una competizione e prepara la tua schedina.
+            </p>
+        </div>
+
+        <a class="hero-button" href="schedina.html">
+            🎟️ Vai alla schedina
+        </a>
+
+    </section>
+
+
+    <!-- COMPETIZIONI -->
+    <section class="section">
+
+        <div class="section-title">
+            <h2>🏆 Competizioni</h2>
+        </div>
+
+
+        <div class="competition-grid">
+
+            <a class="competition-card active" href="#serie-a">
+                🇮🇹
+                <strong>Serie A</strong>
+                <span>Italia</span>
+            </a>
+
+            <a class="competition-card" href="#champions">
+                🏆
+                <strong>Champions League</strong>
+                <span>Europa</span>
+            </a>
+
+            <a class="competition-card" href="#mondiale">
+                🌍
+                <strong>Mondiale</strong>
+                <span>Internazionale</span>
+            </a>
+
+            <a class="competition-card" href="#europei">
+                🇪🇺
+                <strong>Europei</strong>
+                <span>Internazionale</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERIE A -->
+    <section class="section" id="serie-a">
+
+        <div class="section-title">
+
+            <h2>🇮🇹 Serie A</h2>
+
+            <span class="date-label">
+                PROSSIME PARTITE
+            </span>
+
+        </div>
+
+
+        <!-- CONTENITORE PARTITE -->
+        <div class="matches-container">
+
+            <!--
+                Le partite reali verranno caricate
+                automaticamente dal sistema.
+            -->
+
+            <div class="empty-matches">
+
+                <div class="empty-icon">⚽</div>
+
+                <h3>Partite in arrivo</h3>
+
+                <p>
+                    Le partite reali della Serie A
+                    verranno caricate qui.
+                </p>
+
+                <span class="pending-label">
+                    🟡 SISTEMA IN CONFIGURAZIONE
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ESEMPIO STRUTTURA QUOTE -->
+    <section class="section">
+
+        <div class="section-title">
+            <h2>📊 Mercati disponibili</h2>
+        </div>
+
+
+        <div class="markets-grid">
+
+            <div class="market-card">
+                <span>1X2</span>
+                <strong>Esito finale</strong>
+                <p>1 · X · 2</p>
+            </div>
+
+            <div class="market-card">
+                <span>⚽</span>
+                <strong>Gol</strong>
+                <p>Over · Under</p>
+            </div>
+
+            <div class="market-card">
+                <span>🎯</span>
+                <strong>Risultato</strong>
+                <p>Risultato esatto</p>
+            </div>
+
+            <div class="market-card">
+                <span>🔥</span>
+                <strong>Altri mercati</strong>
+                <p>In arrivo</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFO -->
+    <section class="section">
+
+        <div class="info-box">
+
+            <h3>🪙 Come funziona WinKick?</h3>
+
+            <p>
+                Utilizzi esclusivamente KickCoin virtuali.
+                Seleziona le tue quote, crea una schedina
+                e attendi il risultato reale della partita.
+            </p>
+
+            <p>
+                Le schedine rimangono 🟡 <strong>In attesa</strong>
+                fino alla conclusione dell'evento.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>⚽ WinKick</h2>
+
+        <p>
+            Piattaforma di pronostici sportivi con KickCoin virtuali.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+            <a href="login.html">Accedi</a>
+            <a href="register.html">Registrati</a>
+            <a href="classifica.html">Classifica</a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 WinKick
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
